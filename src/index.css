@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #040a18;
+    font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom refined glassmorphism panels */
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(11, 24, 52, 0.62) 0%,
+    rgba(8, 17, 38, 0.48) 100%
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(245, 208, 123, 0.22);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 248, 224, 0.14),
+    inset 0 0 24px rgba(245, 208, 123, 0.04);
+}
+
+.glass-panel-day {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 42, 76, 0.64) 0%,
+    rgba(14, 34, 62, 0.52) 100%
+  );
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(255, 246, 220, 0.34);
+  box-shadow:
+    0 12px 36px rgba(15, 38, 72, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(120deg, #fff5d6 0%, #f5d07b 35%, #ffe9ad 65%, #d9a441 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.magic-btn {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.magic-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 244, 209, 0.24) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+
+.magic-btn:hover::after {
+  transform: translateX(120%);
+}
+
+.magic-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 208, 123, 0.62);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(245, 208, 123, 0.24);
+}
+
+.magic-btn:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+/* Custom gold range slider */
+input[type='range'].gold-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(248, 250, 255, 0.16);
+  height: 4px;
+  border-radius: 999px;
+  outline: none;
+}
+
+input[type='range'].gold-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff8dc, #e5b85b);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 10px rgba(245, 208, 123, 0.8);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type='range'].gold-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type='range'].gold-slider::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff8dc, #e5b85b);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 10px rgba(245, 208, 123, 0.8);
+  cursor: pointer;
+}
+
+/* Hide scrollbars cleanly */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
